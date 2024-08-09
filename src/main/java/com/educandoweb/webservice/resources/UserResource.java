@@ -2,6 +2,7 @@ package com.educandoweb.webservice.resources;
 
 import com.educandoweb.webservice.entities.User;
 import com.educandoweb.webservice.services.UserService;
+import com.educandoweb.webservice.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.ServletRequestBindingException;
@@ -40,8 +41,8 @@ public class UserResource {
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-          service.delete(id);
-          return ResponseEntity.noContent().build();
+        service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping(value = "/{id}")
